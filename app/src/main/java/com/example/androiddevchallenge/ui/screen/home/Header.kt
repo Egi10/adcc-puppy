@@ -22,11 +22,12 @@ import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.example.androiddevchallenge.R
 import com.example.androiddevchallenge.ui.theme.MyTheme
+import com.example.androiddevchallenge.ui.theme.purple700
 
 @Composable
 fun Header() {
     Surface(
-        color = Color.Blue,
+        color = purple700,
         shape = RoundedCornerShape(bottomEnd = 30.dp, bottomStart = 30.dp),
         modifier = Modifier
             .fillMaxWidth(),
