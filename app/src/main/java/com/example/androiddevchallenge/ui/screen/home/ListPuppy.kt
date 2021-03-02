@@ -20,9 +20,10 @@ import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import com.example.androiddevchallenge.R
+import com.example.androiddevchallenge.data.Puppy
 
 @Composable
-fun ItemListPuppy() {
+fun ItemListPuppy(puppy: Puppy) {
     ConstraintLayout(
         modifier = Modifier
             .clip(RoundedCornerShape(10.dp))
@@ -31,7 +32,7 @@ fun ItemListPuppy() {
         val (image, name, description) = createRefs()
 
         Image(
-            painter = painterResource(id = R.drawable.img_profile),
+            painter = painterResource(id = puppy.image),
             contentDescription = "item_list_puppy",
             modifier = Modifier
                 .aspectRatio(2f, true)
@@ -46,7 +47,7 @@ fun ItemListPuppy() {
         )
 
         Text(
-            text = "Title",
+            text = puppy.name,
             style = TextStyle(color = Color.White, fontSize = 12.sp, fontWeight = FontWeight.Bold),
             modifier = Modifier
                 .constrainAs(name) {
@@ -59,7 +60,7 @@ fun ItemListPuppy() {
         )
 
         Text(
-            text = "Disini",
+            text = puppy.description,
             style = TextStyle(color = Color.White, fontSize = 9.sp),
             modifier = Modifier
                 .constrainAs(description) {
@@ -73,8 +74,13 @@ fun ItemListPuppy() {
     }
 }
 
+@Composable
+fun ListPuppy() {
+
+}
+
 @Preview
 @Composable
 fun ItemListPuppyPreview() {
-    ItemListPuppy()
+    ItemListPuppy(puppy = Puppy(R.drawable.img_profile, "Nama", "Disini"))
 }
